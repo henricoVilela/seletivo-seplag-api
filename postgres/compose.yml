@@ -11,7 +11,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 5432:5432
+      - 8033:8033
  
 volumes:
   pgdata:
