@@ -17,4 +17,21 @@ public class ServidorTemporario extends Pessoa {
 
     @Column(name = "st_data_demissao")
     private LocalDate dataDemissao;
+
+	public LocalDate getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(LocalDate dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	public LocalDate getDataDemissao() {
+		return dataDemissao;
+	}
+
+	public void setDataDemissao(LocalDate dataDemissao) {
+		this.dataDemissao = dataDemissao;
+	}
+    
 }

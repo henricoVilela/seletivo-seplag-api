@@ -11,5 +11,5 @@ public class UnidadeDTO {
 	public Integer id;
 	public String nome;
 	public String sigla;
-	public List<Integer> enderecoIds;
+	public List<EnderecoDto> enderecos;
 }

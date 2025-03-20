@@ -17,5 +17,5 @@ public class ServidorTemporarioDTO {
 	public String pai;
     public LocalDate dataAdmissao;
     public LocalDate dataDemissao;
-    public List<Integer> enderecoIds;
+    public List<EnderecoDto> enderecos;
 }
