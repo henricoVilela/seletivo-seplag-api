@@ -64,7 +64,7 @@ public class UnidadeService {
     }
 
     @Transactional
-    public boolean excluir(Long id) {
+    public boolean excluir(Integer id) {
         if (!unidadeRepository.existsById(id)) {
             return false;
         }
