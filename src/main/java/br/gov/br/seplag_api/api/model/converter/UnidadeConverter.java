@@ -1,5 +1,7 @@
 package br.gov.br.seplag_api.api.model.converter;
 
+import java.util.stream.Collectors;
+
 import br.gov.br.seplag_api.api.model.UnidadeDTO;
 import br.gov.br.seplag_api.domain.model.Unidade;
 
@@ -14,6 +16,12 @@ public class UnidadeConverter {
 		dto.id = unidade.getId();
 		dto.nome = unidade.getNome();
 		dto.sigla = unidade.getSigla();
+		
+		if (unidade.getEnderecos() != null) {
+        	dto.enderecos = unidade.getEnderecos().stream()
+        			.map(EnderecoConverter::convert)
+        			.collect(Collectors.toList());
+        }
 		
 		return dto;
 	}

@@ -8,4 +8,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class PessoaDto {
 	public Integer id;
 	public String nome;
+	
+	public PessoaDto() {
+		super();
+	}
+	
+	public PessoaDto(Integer id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	
 }

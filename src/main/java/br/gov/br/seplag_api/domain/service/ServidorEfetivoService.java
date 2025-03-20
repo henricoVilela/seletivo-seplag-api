@@ -38,7 +38,7 @@ public class ServidorEfetivoService {
 
     public Optional<ServidorEfetivoDTO> buscarPorId(Integer id) {
         return servidorRepository.findById(id)
-                .map(ServidorConverter::convert);
+                .map(s -> ServidorConverter.convert(s, TipoConversao.COMPLETA));
     }
 
     @Transactional

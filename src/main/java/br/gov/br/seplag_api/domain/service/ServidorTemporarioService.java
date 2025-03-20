@@ -44,7 +44,7 @@ public class ServidorTemporarioService {
 
     public Optional<ServidorTemporarioDTO> buscarPorId(Integer id) {
         return servidorRepository.findById(id)
-        	.map(ServidorConverter::convert);
+        	.map(s -> ServidorConverter.convert(s, TipoConversao.COMPLETA));
     }
 
     @Transactional
