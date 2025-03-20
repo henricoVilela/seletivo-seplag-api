@@ -24,7 +24,7 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pes_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "pes_nome", length = 200, nullable = false)
     private String nome;
@@ -52,11 +52,11 @@ public class Pessoa {
     )
     private List<Endereco> enderecos;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

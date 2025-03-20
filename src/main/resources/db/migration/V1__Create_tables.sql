@@ -12,7 +12,7 @@ CREATE TABLE pessoa (
 CREATE TABLE foto_pessoa (
     fp_id SERIAL PRIMARY KEY,
     pes_id INT NOT NULL,
-    fp_data DATE,
+    fp_data TIMESTAMP,
     fp_bucket VARCHAR(50),
     fp_hash VARCHAR(50),
     FOREIGN KEY (pes_id) REFERENCES pessoa(pes_id)
@@ -22,7 +22,7 @@ CREATE TABLE foto_pessoa (
 CREATE TABLE cidade (
     cid_id SERIAL PRIMARY KEY,
     cid_nome VARCHAR(200) NOT NULL,
-    cid_uf CHAR(2)
+    cid_uf VARCHAR(2)
 );
 
 -- Criação da tabela endereco

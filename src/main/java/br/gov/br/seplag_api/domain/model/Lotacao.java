@@ -17,7 +17,7 @@ public class Lotacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lot_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "pes_id", nullable = false)
@@ -36,11 +36,11 @@ public class Lotacao {
     @Column(name = "lot_portaria", length = 100)
     private String portaria;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

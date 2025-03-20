@@ -19,7 +19,7 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "end_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "end_tipo_logradouro", length = 10)
     private String tipoLogradouro;
@@ -43,11 +43,11 @@ public class Endereco {
     @ManyToMany(mappedBy = "enderecos")
     private List<Unidade> unidades;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

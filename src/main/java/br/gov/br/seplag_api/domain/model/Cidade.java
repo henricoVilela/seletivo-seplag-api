@@ -17,7 +17,7 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cid_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "cid_nome", length = 200, nullable = false)
     private String nome;
@@ -28,11 +28,11 @@ public class Cidade {
     @OneToMany(mappedBy = "cidade")
     private List<Endereco> enderecos;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -20,7 +20,7 @@ public class FotoPessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fp_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "pes_id", nullable = false)
@@ -36,11 +36,11 @@ public class FotoPessoa {
     @Column(name = "fp_hash", length = 50)
     private String hash;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
