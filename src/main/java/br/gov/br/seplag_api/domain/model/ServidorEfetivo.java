@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @PrimaryKeyJoinColumn(name = "pes_id")
 public class ServidorEfetivo extends Pessoa {
 	
-    @Column(name = "se_matricula", length = 20)
+    @Column(name = "se_matricula", updatable = false, length = 20)
     private String matricula;
 
 	public String getMatricula() {
