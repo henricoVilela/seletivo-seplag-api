@@ -51,7 +51,7 @@ public class UnidadeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UnidadeDTO> atualizar(@PathVariable Integer id, @RequestBody UnidadeDTO unidadeDTO) {
+    public ResponseEntity<UnidadeDTO> atualizar(@PathVariable Integer id, @RequestBody @Valid UnidadeDTO unidadeDTO) {
         unidadeDTO.id = id;
         return unidadeService.atualizar(unidadeDTO)
                 .map(ResponseEntity::ok)
