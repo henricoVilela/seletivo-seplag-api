@@ -43,6 +43,7 @@ public class UnidadeService {
     @Transactional
     public UnidadeDTO salvar(UnidadeDTO unidadeDTO) {
         Unidade unidade = UnidadeConverter.convert(unidadeDTO);
+        adicionaEnderecos(unidadeDTO, unidade);
         unidade = unidadeRepository.save(unidade);
         
         return UnidadeConverter.convert(unidade);
@@ -53,18 +54,11 @@ public class UnidadeService {
         if (!unidadeRepository.existsById(unidadeDTO.id)) {
             return Optional.empty();
         }
+        
         Unidade unidade = UnidadeConverter.convert(unidadeDTO);
-        
-        if (unidadeDTO.enderecos != null && !unidadeDTO.enderecos.isEmpty()) {
-        	var enderecosIds = unidadeDTO.enderecos.stream()
-        		.map(e -> e.id)
-        		.toList();
-        	
-            List<Endereco> enderecos = enderecoRepository.findAllById(enderecosIds);
-            unidade.setEnderecos(enderecos);
-        }
-        
+        adicionaEnderecos(unidadeDTO, unidade);
         unidade = unidadeRepository.save(unidade);
+        
         return Optional.of(UnidadeConverter.convert(unidade));
     }
 
@@ -75,5 +69,16 @@ public class UnidadeService {
         }
         unidadeRepository.deleteById(id);
         return true;
+    }
+    
+    private void adicionaEnderecos(UnidadeDTO unidadeDTO, Unidade unidade) {
+    	if (unidadeDTO.enderecos != null && !unidadeDTO.enderecos.isEmpty()) {
+        	var enderecosIds = unidadeDTO.enderecos.stream()
+        		.map(e -> e.id)
+        		.toList();
+        	
+            List<Endereco> enderecos = enderecoRepository.findAllById(enderecosIds);
+            unidade.setEnderecos(enderecos);
+        }
     }
 }

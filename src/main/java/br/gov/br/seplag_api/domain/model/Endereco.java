@@ -43,7 +43,7 @@ public class Endereco {
 
     @ManyToMany(mappedBy = "enderecos")
     private List<Unidade> unidades;
-
+    
 	public Integer getId() {
 		return id;
 	}
