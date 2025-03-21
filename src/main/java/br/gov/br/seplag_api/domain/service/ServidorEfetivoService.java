@@ -48,6 +48,8 @@ public class ServidorEfetivoService {
         ServidorEfetivo servidor = ServidorConverter.convert(servidorDTO);
         servidor.setMatricula(gerarMatriculaUnica());
         
+        adicionaEnderecos(servidorDTO, servidor);
+        
         servidor = servidorRepository.save(servidor);
         return ServidorConverter.convert(servidor);
     }
@@ -58,15 +60,7 @@ public class ServidorEfetivoService {
             return Optional.empty();
         }
         ServidorEfetivo servidor = ServidorConverter.convert(servidorDTO);
-        
-        if (servidorDTO.enderecos != null && !servidorDTO.enderecos.isEmpty()) {
-        	var enderecosIds = servidorDTO.enderecos.stream()
-        		.map(e -> e.id)
-        		.toList();
-        	
-            List<Endereco> enderecos = enderecoRepository.findAllById(enderecosIds);
-            servidor.setEnderecos(enderecos);
-        }
+        adicionaEnderecos(servidorDTO, servidor);
         
         servidor = servidorRepository.save(servidor);
         
@@ -88,6 +82,17 @@ public class ServidorEfetivoService {
             matricula = MatriculaUtils.gerarMatricula();
         } while (servidorRepository.existsByMatricula(matricula)); // Verifica se a matrícula já existe
         return matricula;
+    }
+    
+    private void adicionaEnderecos(ServidorEfetivoDTO servidorDTO, ServidorEfetivo servidor) {
+    	if (servidorDTO.enderecos != null && !servidorDTO.enderecos.isEmpty()) {
+        	var enderecosIds = servidorDTO.enderecos.stream()
+        		.map(e -> e.id)
+        		.toList();
+        	
+            List<Endereco> enderecos = enderecoRepository.findAllById(enderecosIds);
+            servidor.setEnderecos(enderecos);
+        }
     }
     
 }
