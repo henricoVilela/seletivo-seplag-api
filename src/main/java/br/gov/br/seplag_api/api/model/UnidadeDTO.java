@@ -22,6 +22,6 @@ public class UnidadeDTO {
     @Size(min = 3, max = 20, message = "O nome deve ter entre {min} e {max} caracteres")
 	public String sigla;
 	
-	@NotEmpty(message = "não pode estar em branco")
+	@NotEmpty(message = "não pode estar vazio")
 	public List<EnderecoDto> enderecos;
 }

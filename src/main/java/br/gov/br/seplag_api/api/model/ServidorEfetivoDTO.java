@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import br.gov.br.seplag_api.api.model.converter.LocalDateDeserializer;
 import br.gov.br.seplag_api.api.model.converter.LocalDateSerializer;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -25,7 +27,7 @@ public class ServidorEfetivoDTO {
 	
 	@JsonSerialize(using = LocalDateSerializer.class)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@NotBlank(message = "não pode estar em branco")
+	@NotNull(message = "não pode estar em branco")
     public LocalDate dataNascimento;
     
     @NotBlank(message = "não pode estar em branco")
@@ -42,6 +44,6 @@ public class ServidorEfetivoDTO {
     
     public String matricula;
     
-    @NotBlank(message = "não pode estar em branco")
+    @NotEmpty(message = "não pode estar vazio")
     public List<EnderecoDto> enderecos;
 }
