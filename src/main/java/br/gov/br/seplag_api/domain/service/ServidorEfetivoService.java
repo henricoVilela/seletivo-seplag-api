@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.br.seplag_api.api.model.ServidorEfetivoDTO;
 import br.gov.br.seplag_api.api.model.converter.ServidorConverter;
+import br.gov.br.seplag_api.commos.MatriculaUtils;
 import br.gov.br.seplag_api.domain.model.Endereco;
 import br.gov.br.seplag_api.domain.model.ServidorEfetivo;
 import br.gov.br.seplag_api.repository.EnderecoRepository;
@@ -43,9 +44,11 @@ public class ServidorEfetivoService {
 
     @Transactional
     public ServidorEfetivoDTO salvar(ServidorEfetivoDTO servidorDTO) {
+    	servidorDTO.id = null;
         ServidorEfetivo servidor = ServidorConverter.convert(servidorDTO);
-        servidor = servidorRepository.save(servidor);
+        servidor.setMatricula(gerarMatriculaUnica());
         
+        servidor = servidorRepository.save(servidor);
         return ServidorConverter.convert(servidor);
     }
 
@@ -77,6 +80,14 @@ public class ServidorEfetivoService {
         }
         servidorRepository.deleteById(id);
         return true;
+    }
+    
+    public String gerarMatriculaUnica() {
+        String matricula;
+        do {
+            matricula = MatriculaUtils.gerarMatricula();
+        } while (servidorRepository.existsByMatricula(matricula)); // Verifica se a matrícula já existe
+        return matricula;
     }
     
 }

@@ -8,4 +8,5 @@ import br.gov.br.seplag_api.domain.model.ServidorEfetivo;
 @Repository
 public interface ServidorEfetivoRepository extends JpaRepository<ServidorEfetivo, Integer> {
 
+	boolean existsByMatricula(String matricula);
 }
