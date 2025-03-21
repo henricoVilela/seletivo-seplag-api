@@ -2,9 +2,12 @@ package br.gov.br.seplag_api.domain.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,11 +26,13 @@ public class UnidadeService {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
-
-    public List<UnidadeDTO> listarTodas() {
-        return unidadeRepository.findAll().stream()
-                .map(UnidadeConverter::convert)
-                .collect(Collectors.toList());
+    
+    public Page<UnidadeDTO> listarTodosPaginado(int pagina, int tamanho, String ordenacao, String direcao) {
+        Sort.Direction direcaoSort = direcao.equalsIgnoreCase("DESC") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(direcaoSort, ordenacao));
+        
+        return unidadeRepository.findAll(pageable)
+                .map(UnidadeConverter::convert);
     }
 
     public Optional<UnidadeDTO> buscarPorId(Integer id) {
