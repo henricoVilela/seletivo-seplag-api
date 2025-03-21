@@ -16,7 +16,7 @@ import br.gov.br.seplag_api.domain.service.ServidorEfetivoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/servidore-efetivo")
+@RequestMapping("/api/servidor-efetivo")
 public class ServidorEfetivoController {
 	
 	@Autowired
