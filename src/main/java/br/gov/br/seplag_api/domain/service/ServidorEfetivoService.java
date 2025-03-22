@@ -64,7 +64,7 @@ public class ServidorEfetivoService {
         
         servidor = servidorRepository.save(servidor);
         
-        return Optional.of(ServidorConverter.convert(servidor));
+        return Optional.of(ServidorConverter.convert(servidor, TipoConversao.COMPLETA));
     }
 
     @Transactional

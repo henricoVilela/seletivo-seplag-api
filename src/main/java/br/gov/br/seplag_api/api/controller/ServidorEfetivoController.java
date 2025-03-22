@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,6 +46,14 @@ public class ServidorEfetivoController {
     public ResponseEntity<ServidorEfetivoDTO> criar(@RequestBody @Valid ServidorEfetivoDTO servidorDTO) {
         ServidorEfetivoDTO novoServidor = servidorEfetivoService.salvar(servidorDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoServidor);
+    }
+	
+	@PutMapping("/{id}")
+    public ResponseEntity<ServidorEfetivoDTO> atualizar(@PathVariable Integer id, @RequestBody ServidorEfetivoDTO servidorDTO) {
+        servidorDTO.id = id;
+        return servidorEfetivoService.atualizar(servidorDTO)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
