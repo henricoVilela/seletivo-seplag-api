@@ -1,0 +1,16 @@
+INSERT INTO pessoa (pes_nome, pes_data_nascimento, pes_sexo, pes_mae, pes_pai) VALUES
+('Maria Silva Oliveira', '1985-06-12', 'F', 'Ana Beatriz Silva', 'Carlos Eduardo Oliveira'),
+('João Pedro Santos', '1990-03-25', 'M', 'Mariana Santos', 'Ricardo Santos'),
+('Ana Carolina Ferreira', '1978-11-30', 'F', 'Lúcia Ferreira', 'Antônio Ferreira'),
+('Lucas Mendes Costa', '1995-08-17', 'M', 'Júlia Mendes', 'Fernando Costa'),
+('Juliana Almeida Souza', '1982-02-05', 'F', 'Teresa Almeida', 'José Souza'),
+('Pedro Henrique Gomes', '1998-04-22', 'M', 'Patrícia Gomes', 'Roberto Gomes'),
+('Camila Rodrigues Lima', '1987-09-14', 'F', 'Márcia Rodrigues', 'Paulo Lima'),
+('Rafael Martins Pereira', '1979-07-08', 'M', 'Sandra Martins', 'Eduardo Pereira'),
+('Fernanda Costa Oliveira', '1993-12-03', 'F', 'Regina Costa', 'Marcelo Oliveira'),
+('Bruno Alves Ribeiro', '1980-01-27', 'M', 'Laura Alves', 'Alexandre Ribeiro'),
+('Amanda Cardoso Vieira', '1991-05-19', 'F', 'Cristina Cardoso', 'Rodrigo Vieira'),
+('Thiago Moreira Santos', '1976-10-11', 'M', 'Eliane Moreira', 'Sérgio Santos'),
+('Carolina Barbosa Silva', '1997-03-08', 'F', 'Débora Barbosa', 'Daniel Silva'),
+('Gustavo Teixeira Rocha', '1984-06-30', 'M', 'Vera Teixeira', 'Marcos Rocha'),
+('Bianca Correia Lima', '1989-09-22', 'F', 'Adriana Correia', 'Felipe Lima');
