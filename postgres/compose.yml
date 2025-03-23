@@ -1,5 +1,5 @@
 services:
-  db:
+  postgres_db:
     image: postgres:17.4
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
     ports:
       - 8080:8081
     depends_on:
-      - db
+      - postgres_db
  
 volumes:
   pgdata:
