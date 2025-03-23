@@ -24,12 +24,8 @@ public class ServidorConverter {
 		}
 		
 		ServidorEfetivoDTO dto = new ServidorEfetivoDTO();
-        dto.id = servidor.getId();
-        dto.nome = servidor.getNome();
-        dto.dataNascimento = servidor.getDataNascimento();
-        dto.sexo = servidor.getSexo();
-        dto.mae = servidor.getMae();
-        dto.pai = servidor.getPai();
+		PessoaConverter.convert(servidor, dto, tipoConversao);
+		
         dto.matricula = servidor.getMatricula();
         
         if (servidor.getEnderecos() != null && tipoConversao.isCompleta()) {
@@ -43,14 +39,9 @@ public class ServidorConverter {
 	
 	public static ServidorEfetivo convert(ServidorEfetivoDTO dto) {
         ServidorEfetivo servidor = new ServidorEfetivo();
-        servidor.setId(dto.id);
-        servidor.setNome(dto.nome);
-        servidor.setDataNascimento(dto.dataNascimento);
-        servidor.setSexo(dto.sexo);
-        servidor.setMae(dto.mae);
-        servidor.setPai(dto.pai);
-        servidor.setMatricula(dto.matricula);
+        PessoaConverter.convert(dto, servidor);
         
+        servidor.setMatricula(dto.matricula);
         return servidor;
     }
 	
@@ -60,12 +51,8 @@ public class ServidorConverter {
 		}
 		
 		ServidorTemporarioDTO dto = new ServidorTemporarioDTO();
-        dto.id = servidor.getId();
-        dto.nome = servidor.getNome();
-        dto.dataNascimento = servidor.getDataNascimento();
-        dto.sexo = servidor.getSexo();
-        dto.mae = servidor.getMae();
-        dto.pai = servidor.getPai();
+		PessoaConverter.convert(servidor, dto, tipoConversao);
+		
         dto.dataAdmissao = servidor.getDataAdmissao();
         dto.dataDemissao = servidor.getDataDemissao();
         
@@ -80,12 +67,8 @@ public class ServidorConverter {
 	
 	public static ServidorTemporario convert(ServidorTemporarioDTO dto) {
 		ServidorTemporario servidor = new ServidorTemporario();
-        servidor.setId(dto.id);
-        servidor.setNome(dto.nome);
-        servidor.setDataNascimento(dto.dataNascimento);
-        servidor.setSexo(dto.sexo);
-        servidor.setMae(dto.mae);
-        servidor.setPai(dto.pai);
+		PessoaConverter.convert(dto, servidor);
+		
         servidor.setDataAdmissao(dto.dataAdmissao);
         servidor.setDataDemissao(dto.dataDemissao);
         

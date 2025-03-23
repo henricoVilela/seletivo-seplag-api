@@ -6,8 +6,5 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ServidorEfetivoDTO extends PessoaDto {
-	
-	public Integer id;
     public String matricula;
-    
 }

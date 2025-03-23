@@ -13,7 +13,6 @@ import br.gov.br.seplag_api.api.model.converter.LocalDateSerializer;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ServidorTemporarioDTO extends PessoaDto {
-	public Integer id;
 	
     @JsonSerialize(using = LocalDateSerializer.class)
 	@JsonDeserialize(using = LocalDateDeserializer.class)
