@@ -5,6 +5,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,10 +36,12 @@ public class LotacaoService {
     @Autowired
     private UnidadeRepository unidadeRepository;
 
-    public List<LotacaoDTO> listarTodas() {
-        return lotacaoRepository.findAll().stream()
-        		.map(LotacaoConverter::convert)
-                .collect(Collectors.toList());
+    public Page<LotacaoDTO> listarTodosPaginado(int pagina, int tamanho, String ordenacao, String direcao) {
+        Sort.Direction direcaoSort = direcao.equalsIgnoreCase("DESC") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(direcaoSort, ordenacao));
+        
+        return lotacaoRepository.findAll(pageable)
+                .map(LotacaoConverter::convert);
     }
 
     public Optional<LotacaoDTO> buscarPorId(Integer id) {
