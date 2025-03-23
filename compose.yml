@@ -10,6 +10,8 @@ services:
     hostname: seplag-api
     depends_on:
       - postgres_db
+    networks:
+      - seplag-network
     
 include:
   - ./postgres/compose.yml
