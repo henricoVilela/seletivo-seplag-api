@@ -100,6 +100,7 @@ public class FotoService {
             return url;
             
         } catch (Exception e) {
+        	e.printStackTrace();
             throw new RuntimeException("Erro ao gerar link temporário", e);
         }
     }

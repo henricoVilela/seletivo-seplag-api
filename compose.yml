@@ -1,5 +1,6 @@
 services:
   seplag-api:
+    build: .
     image: seplag-api:0.0.1-SNAPSHOT
     restart: unless-stopped
     ports:
