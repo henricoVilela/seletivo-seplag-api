@@ -3,6 +3,8 @@ services:
     image: postgres:17.4
     restart: always
     container_name: postgres_db
+    networks:
+      - seplag-network
     environment:
       POSTGRES_PASSWORD: seplag#2025
       POSTGRES_USER: postgres
@@ -23,3 +25,7 @@ services:
  
 volumes:
   pgdata:
+  
+networks:
+  seplag-network:
+    external: true
