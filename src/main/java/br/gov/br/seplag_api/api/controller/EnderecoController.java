@@ -12,7 +12,7 @@ import br.gov.br.seplag_api.api.model.EnderecoDto;
 import br.gov.br.seplag_api.domain.service.EnderecoService;
 
 @RestController
-@RequestMapping("/api/enderecos")
+@RequestMapping("/enderecos")
 public class EnderecoController {
 	
 	@Autowired

@@ -19,7 +19,7 @@ import br.gov.br.seplag_api.domain.service.UnidadeService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/unidade")
+@RequestMapping("/unidade")
 public class UnidadeController {
 
     @Autowired
