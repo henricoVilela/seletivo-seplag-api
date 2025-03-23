@@ -43,6 +43,18 @@ public class ServidorEfetivoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 	
+	@GetMapping("/unidade/{id}")
+    public ResponseEntity<Page<ServidorEfetivoDTO>> listarPorUnidadeId(
+    		@PathVariable Integer id,
+    		@RequestParam(defaultValue = "0") int pagina,
+            @RequestParam(defaultValue = "10") int tamanho,
+            @RequestParam(defaultValue = "id") String ordenacao,
+            @RequestParam(defaultValue = "ASC") String direcao) {
+
+        var servidores = servidorEfetivoService.listarPorUnidadeId(id, pagina, tamanho, ordenacao, direcao);
+        return ResponseEntity.ok(servidores);
+    }
+	
 	@PostMapping
     public ResponseEntity<ServidorEfetivoDTO> criar(@RequestBody @Valid ServidorEfetivoDTO servidorDTO) {
         ServidorEfetivoDTO novoServidor = servidorEfetivoService.salvar(servidorDTO);

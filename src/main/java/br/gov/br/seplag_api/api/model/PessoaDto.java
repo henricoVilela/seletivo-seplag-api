@@ -45,6 +45,9 @@ public class PessoaDto {
     public List<EnderecoDto> enderecos;
     
     public List<LotacaoDTO> lotacoes;
+    public List<String> linksFotos;
+    public UnidadeDTO unidade;
+    public int idade;
     
 	public PessoaDto() {
 		super();

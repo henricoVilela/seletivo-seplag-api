@@ -9,5 +9,5 @@ import br.gov.br.seplag_api.domain.model.FotoPessoa;
 
 @Repository
 public interface FotoPessoaRepository extends CrudRepository<FotoPessoa, Integer> {
-	List<FotoPessoa> findByPessoaId(Long pessoaId);
+	List<FotoPessoa> findByPessoaId(Integer pessoaId);
 }

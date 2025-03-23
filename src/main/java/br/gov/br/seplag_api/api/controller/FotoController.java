@@ -62,7 +62,7 @@ public class FotoController {
     }
     
     @GetMapping("/pessoa/{pessoaId}")
-    public ResponseEntity<?> listarFotosPorPessoa(@PathVariable Long pessoaId) {
+    public ResponseEntity<?> listarFotosPorPessoa(@PathVariable Integer pessoaId) {
         try {
             List<FotoPessoa> fotos = fotoService.listarFotosPorPessoa(pessoaId);
             return ResponseEntity.ok(fotos);
@@ -72,7 +72,7 @@ public class FotoController {
     }
     
     @GetMapping("/pessoa/{pessoaId}/links")
-    public ResponseEntity<?> listarLinksTemporariosPorPessoa(@PathVariable Long pessoaId) {
+    public ResponseEntity<?> listarLinksTemporariosPorPessoa(@PathVariable Integer pessoaId) {
         try {
             List<FotoPessoa> fotos = fotoService.listarFotosPorPessoa(pessoaId);
             

@@ -1,6 +1,7 @@
 package br.gov.br.seplag_api.domain.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -124,5 +125,11 @@ public class Pessoa {
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
+	
+	public int idade() {
+        LocalDate dataAtual = LocalDate.now();
+        Period periodo = Period.between(dataNascimento, dataAtual);
+        return periodo.getYears();
+    }
     
 }

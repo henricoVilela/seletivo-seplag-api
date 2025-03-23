@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.gov.br.seplag_api.domain.exception.ResourceNotFoundException;
 import br.gov.br.seplag_api.domain.model.FotoPessoa;
 import br.gov.br.seplag_api.domain.model.Pessoa;
 import br.gov.br.seplag_api.repository.FotoPessoaRepository;
@@ -85,7 +86,7 @@ public class FotoService {
     public String getTemporaryLink(Integer fotoId) {
         try {
             FotoPessoa foto = fotoPessoaRepository.findById(fotoId)
-                .orElseThrow(() -> new RuntimeException("Foto não encontrada"));
+                .orElseThrow(() -> new ResourceNotFoundException("Foto não encontrada"));
             
             String url = minioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
@@ -103,7 +104,17 @@ public class FotoService {
         }
     }
     
-    public List<FotoPessoa> listarFotosPorPessoa(Long pessoaId) {
+    public List<String> getMultiTemporaryLink(List<FotoPessoa> fotos) {
+    	List<String> links = new ArrayList<>();
+    	
+    	for (FotoPessoa foto : fotos) {
+    		links.add(getTemporaryLink(foto.getId())); 
+		}
+    	
+    	return links;
+    }
+    
+    public List<FotoPessoa> listarFotosPorPessoa(Integer pessoaId) {
         return fotoPessoaRepository.findByPessoaId(pessoaId);
     }
 }
