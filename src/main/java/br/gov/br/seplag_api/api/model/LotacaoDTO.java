@@ -33,4 +33,11 @@ public class LotacaoDTO {
     
     @NotNull(message = "não pode estar em branco")
     public String portaria;
+    
+    public void removeDadosPessoa() {
+    	this.pessoa = null;
+    	this.portaria = null;
+    	this.dataLotacao = null;
+    	this.dataRemocao = null;
+    }
 }

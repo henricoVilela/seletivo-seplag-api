@@ -1,5 +1,7 @@
 package br.gov.br.seplag_api.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.gov.br.seplag_api.api.model.EnderecoDto;
+import br.gov.br.seplag_api.api.model.PessoaDto;
 import br.gov.br.seplag_api.domain.service.EnderecoService;
 
 @RestController
@@ -29,4 +32,8 @@ public class EnderecoController {
         return ResponseEntity.ok(enderecos);
     }
 
+	@GetMapping("/pessoa")
+	public ResponseEntity<List<PessoaDto>> getEnderecoPorNomePessoa(@RequestParam String nome) {
+		return ResponseEntity.ok(enderecoService.buscarPorNome(nome));
+	}
 }

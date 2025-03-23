@@ -44,6 +44,8 @@ public class PessoaDto {
     @NotEmpty(message = "não pode estar vazio")
     public List<EnderecoDto> enderecos;
     
+    public List<LotacaoDTO> lotacoes;
+    
 	public PessoaDto() {
 		super();
 	}
