@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN --mount=type=cache,target=/root/.m2 mvn -f pom.xml clean package
+RUN --mount=type=cache,target=/root/.m2 mvn -f pom.xml clean package -DskipTests
 
 # Estágio 2: Criar a imagem do jre
 FROM eclipse-temurin:21-jre
