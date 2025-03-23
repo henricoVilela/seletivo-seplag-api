@@ -2,6 +2,7 @@ services:
   postgres_db:
     image: postgres:17.4
     restart: always
+    container_name: postgres_db
     environment:
       POSTGRES_PASSWORD: seplag#2025
       POSTGRES_USER: postgres
