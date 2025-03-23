@@ -52,6 +52,15 @@ public class Pessoa {
     )
     private List<Endereco> enderecos;
 
+    public Pessoa() {
+		super();
+	}
+    
+	public Pessoa(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}
