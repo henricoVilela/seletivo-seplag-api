@@ -1,0 +1,13 @@
+services:
+  seplag-api:
+    image: seplag-api:0.0.1-SNAPSHOT
+    restart: unless-stopped
+    container_name: conexe-api-geral
+    hostname: conexe-api-geral
+    networks:
+      - seplag_api_network
+      
+networks:
+  conexe:
+    external: true
+
