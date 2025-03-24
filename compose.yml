@@ -7,7 +7,7 @@ services:
       - "8081:8081"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_db:5432/seplag
-      - MINIO_ENDPOINT=http://localhost
+      - MINIO_ENDPOINT=http://minio:9000
     container_name: seplag-api
     hostname: seplag-api
     networks:
@@ -19,7 +19,6 @@ services:
 include:
   - ./postgres/compose.yml
   - ./minio/compose.yml
-  - ./nginx/compose.yml
   
 networks:
   seplag-network:
