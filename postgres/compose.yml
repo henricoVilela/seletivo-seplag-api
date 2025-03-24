@@ -9,7 +9,7 @@ services:
       POSTGRES_DB: seplag
       POSTGRES_INITDB_ARGS: "--encoding=UTF8"
     volumes:
-      - /.docker/seplag/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -22,6 +22,7 @@ services:
       - 8001:8080
     depends_on:
       - postgres_db
- 
+      
 volumes:
-  pgdata:
+  postgres_data:
+    driver: local
