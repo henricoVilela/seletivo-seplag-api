@@ -7,7 +7,6 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,24 +26,14 @@ import io.minio.http.Method;
 public class FotoService {
 	
 	@Autowired
-	@Qualifier("internalMinioClient")
     private MinioClient minioClient;
 	
-	@Autowired
-	@Qualifier("publicMinioClient")
-    private MinioClient publicMinioClient;
-    
     @Autowired
     private FotoPessoaRepository fotoPessoaRepository;
     
     @Value("${minio.bucket}")
     private String bucketName;
     
-    @Value("${minio.endpoint}")
-    private String endpoint;
-    
-    @Value("${minio.public.endpoint}")
-    private String publicEndpoint;
     
     public void checkBucket() {
         try {
@@ -101,7 +90,7 @@ public class FotoService {
             FotoPessoa foto = fotoPessoaRepository.findById(fotoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Foto não encontrada"));
             
-            String url = publicMinioClient.getPresignedObjectUrl(
+            String url = minioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
                     .bucket(foto.getBucket())
                     .object(foto.getHash())
