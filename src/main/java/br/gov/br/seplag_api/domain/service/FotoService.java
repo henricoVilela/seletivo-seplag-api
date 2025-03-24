@@ -1,6 +1,5 @@
 package br.gov.br.seplag_api.domain.service;
 
-import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +27,12 @@ import io.minio.http.Method;
 public class FotoService {
 	
 	@Autowired
+	@Qualifier("internalMinioClient")
     private MinioClient minioClient;
+	
+	@Autowired
+	@Qualifier("publicMinioClient")
+    private MinioClient publicMinioClient;
     
     @Autowired
     private FotoPessoaRepository fotoPessoaRepository;
@@ -96,7 +101,7 @@ public class FotoService {
             FotoPessoa foto = fotoPessoaRepository.findById(fotoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Foto não encontrada"));
             
-            String url = minioClient.getPresignedObjectUrl(
+            String url = publicMinioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
                     .bucket(foto.getBucket())
                     .object(foto.getHash())
@@ -105,7 +110,7 @@ public class FotoService {
                     .build()
             );
             
-            return getPublicUrl(url);
+            return url;
             
         } catch (Exception e) {
         	e.printStackTrace();
@@ -125,23 +130,5 @@ public class FotoService {
     
     public List<FotoPessoa> listarFotosPorPessoa(Integer pessoaId) {
         return fotoPessoaRepository.findByPessoaId(pessoaId);
-    }
-    
-    private String getPublicUrl(String presignedUrl) {
-        try {
-        	
-            URI internalUri = URI.create(endpoint);
-            String internalHostPort = internalUri.getHost() + 
-                (internalUri.getPort() > 0 ? ":" + internalUri.getPort() : "");
-            
-            URI publicUri = URI.create(publicEndpoint);
-            String publicHostPort = publicUri.getHost() + 
-                (publicUri.getPort() > 0 ? ":" + publicUri.getPort() : "");
-            
-            return presignedUrl.replaceFirst(internalHostPort, publicHostPort);
-            
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao converter URL interna para URL pública", e);
-        }
     }
 }
