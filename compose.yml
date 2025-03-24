@@ -19,6 +19,7 @@ services:
 include:
   - ./postgres/compose.yml
   - ./minio/compose.yml
+  - ./nginx/compose.yml
   
 networks:
   seplag-network:
