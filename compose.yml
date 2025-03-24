@@ -15,10 +15,44 @@ services:
     depends_on:
       - postgres_db
       - minio
+      
+  postgres_db:
+    image: postgres:17.4
+    restart: always
+    container_name: postgres_db
+    environment:
+      POSTGRES_PASSWORD: seplag#2025
+      POSTGRES_USER: postgres
+      POSTGRES_DB: seplag
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - seplag-network
     
-include:
-  - ./postgres/compose.yml
-  - ./minio/compose.yml
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"     # API port
+      - "9001:9001"     # Console port
+    volumes:
+      - minio_data:/var/lib/minio/data
+    environment:
+      MINIO_ROOT_USER: minioadmin     # Usuário de acesso
+      MINIO_ROOT_PASSWORD: minioadmin # Senha de acesso
+      MINIO_ADDRESS: ":9000"          # Endereço de bind da API
+      MINIO_CONSOLE_ADDRESS: ":9001"  # Endereço de bind do console
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+    networks:
+      - seplag-network
+      
+volumes:
+  postgres_data:
+  minio_data:
   
 networks:
   seplag-network:

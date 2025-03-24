@@ -12,17 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - seplag-network
- 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8001:8080
-    depends_on:
-      - postgres_db
-      
+
 volumes:
   postgres_data:
     driver: local
