@@ -1,5 +1,6 @@
 package br.gov.br.seplag_api.domain.service;
 
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,12 @@ public class FotoService {
     
     @Value("${minio.bucket}")
     private String bucketName;
+    
+    @Value("${minio.endpoint}")
+    private String endpoint;
+    
+    @Value("${minio.public.endpoint}")
+    private String publicEndpoint;
     
     public void checkBucket() {
         try {
@@ -85,6 +92,7 @@ public class FotoService {
     
     public String getTemporaryLink(Integer fotoId) {
         try {
+        	checkBucket();
             FotoPessoa foto = fotoPessoaRepository.findById(fotoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Foto não encontrada"));
             
@@ -97,7 +105,7 @@ public class FotoService {
                     .build()
             );
             
-            return url;
+            return getPublicUrl(url);
             
         } catch (Exception e) {
         	e.printStackTrace();
@@ -117,5 +125,23 @@ public class FotoService {
     
     public List<FotoPessoa> listarFotosPorPessoa(Integer pessoaId) {
         return fotoPessoaRepository.findByPessoaId(pessoaId);
+    }
+    
+    private String getPublicUrl(String presignedUrl) {
+        try {
+        	
+            URI internalUri = URI.create(endpoint);
+            String internalHostPort = internalUri.getHost() + 
+                (internalUri.getPort() > 0 ? ":" + internalUri.getPort() : "");
+            
+            URI publicUri = URI.create(publicEndpoint);
+            String publicHostPort = publicUri.getHost() + 
+                (publicUri.getPort() > 0 ? ":" + publicUri.getPort() : "");
+            
+            return presignedUrl.replaceFirst(internalHostPort, publicHostPort);
+            
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao converter URL interna para URL pública", e);
+        }
     }
 }
