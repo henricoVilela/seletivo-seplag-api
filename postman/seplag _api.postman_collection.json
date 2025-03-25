@@ -1,0 +1,1257 @@
+{
+	"info": {
+		"_postman_id": "246f48d7-7e25-4d4a-8892-468978bf488f",
+		"name": "Seplag API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10017275"
+	},
+	"item": [
+		{
+			"name": "Unidades",
+			"item": [
+				{
+					"name": "Lista Unidades",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDU4NSwiZXhwIjoxNzQyNzY0ODg1fQ.EbpSeU9X2y4sjd8MGetl_xhpYMBpO0_W79mrewpgkuc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/unidade?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"unidade"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Unidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Tribunal de Contas\",\r\n    \"sigla\": \"TCE\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 1\r\n        },\r\n        {\r\n            \"id\": 9\r\n        }\r\n    ]\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/unidade",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"unidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unidade Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/unidade/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"unidade",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exclui Unidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/unidade/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"unidade",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Unidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Tribunal de Contas\",\r\n    \"sigla\": \"TCE MT\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 7\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/unidade/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"unidade",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Servidor Efetivo",
+			"item": [
+				{
+					"name": "Lista Servidores Efetivos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Servidores Por Unidade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1NDM4MSwiZXhwIjoxNzQyODU0NjgxfQ.rU7T69R8cN_goSWgpu9q29yadHRfmfmmwvMprFW-SbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo/unidade/1?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo",
+								"unidade",
+								"1"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servidor Efetivo Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Servidor Efetivo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Servidor Efetivo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mae\": \"Maria Ribeiro\",\r\n    \"pai\": \"João Da Penha\",\r\n    \"nome\": \"João Filho\",\r\n    \"sexo\": \"M\",\r\n    \"dataNascimento\": \"01/01/1997\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 10\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Servidor Efetivo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mae\": \"Maria Ribeiro\",\r\n    \"pai\": \"João Da Penha\",\r\n    \"nome\": \"João Filho da Penha\",\r\n    \"sexo\": \"M\",\r\n    \"dataNascimento\": \"01/01/1997\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 13\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-efetivo/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-efetivo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Servidor Temporario",
+			"item": [
+				{
+					"name": "Lista Servidores Temporario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-temporario?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-temporario"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servidor Temporario Por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-temporario/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-temporario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Servidor Temporario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-temporario/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-temporario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Servidor Temporario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mae\": \"Maria Ribeiro\",\r\n    \"pai\": \"João Da Penha\",\r\n    \"nome\": \"João Filho\",\r\n    \"sexo\": \"M\",\r\n    \"dataNascimento\": \"01/01/1997\",\r\n    \"dataAdmissao\": \"01/01/2026\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 10\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-temporario",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-temporario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Servidor Temporario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mae\": \"Maria Ribeiro\",\r\n    \"pai\": \"João Da Penha\",\r\n    \"nome\": \"João Filho da Penha\",\r\n    \"sexo\": \"M\",\r\n    \"dataNascimento\": \"01/01/1997\",\r\n    \"enderecos\": [\r\n        {\r\n            \"id\": 13\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/servidor-temporario/16",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"servidor-temporario",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lotação",
+			"item": [
+				{
+					"name": "Lista Lotações",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lotação por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lotação por Pessoa ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao/pessoa/13",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao",
+								"pessoa",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lotação por Unidade ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao/unidade/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao",
+								"unidade",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Lotação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pessoa\": {\r\n        \"id\":  1\r\n    },\r\n    \"unidade\": {\r\n        \"id\": \"2\"\r\n    },\r\n    \"dataLotacao\": \"07/02/2024\",\r\n    \"portaria\": \"DF001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Lotação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pessoa\": {\r\n        \"id\":  2\r\n    },\r\n    \"unidade\": {\r\n        \"id\": 5\r\n    },\r\n    \"dataLotacao\": \"07/02/2024\",\r\n    \"portaria\": \"DF008\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Lotação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/lotacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"lotacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fotos",
+			"item": [
+				{
+					"name": "Upload Unico Por Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1ODE5OSwiZXhwIjoxNzQyODU4NDk5fQ.WFA3e-AmFT-xCIm-SJ8K1eH3c_ZxUTpSlq3JGm8VaVs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/henri/OneDrive/Imagens/Capturas de tela/Captura de Tela (2).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/fotos/upload/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"fotos",
+								"upload",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Multiplo Por Pessoa ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/henri/Downloads/Pessoa Homem Gestos PNG Transparente.jpg",
+										"/C:/Users/henri/Downloads/Mulher duvidosa inconsciente estende as mãos, levanta as sobrancelhas com hesitação _ Foto Grátis.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/fotos/upload-multiplos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"fotos",
+								"upload-multiplos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Links Por Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1ODE5OSwiZXhwIjoxNzQyODU4NDk5fQ.WFA3e-AmFT-xCIm-SJ8K1eH3c_ZxUTpSlq3JGm8VaVs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/fotos/pessoa/1/links",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"fotos",
+								"pessoa",
+								"1",
+								"links"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Dados Por Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/fotos/pessoa/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"fotos",
+								"pessoa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Link por Foto ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/fotos/link/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"fotos",
+								"link",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço",
+			"item": [
+				{
+					"name": "Lista Enderecos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/enderecos?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"enderecos"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "tamanho",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								},
+								{
+									"key": "direcao",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endereco Por Nome Pessoa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2Njc3NCwiZXhwIjoxNzQyNzY3MDc0fQ.RFamH-URmUqoemWzJ7Sk4G2GK1hsfmAuIDEYuHSKGlI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/seplag/api/enderecos/pessoa?nome=amanda",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"enderecos",
+								"pessoa"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "amanda"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "senha_admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"senha_admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/seplag/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"seplag",
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NjUwMCwiZXhwIjoxNzQyNzY2ODAwfQ.4eqSHCWzqBBHun1HJhEphwkEwSwzyzCNYWxRNppLIZI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/seplag/api/auth/refresh-token",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"seplag",
+						"api",
+						"auth",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
