@@ -46,7 +46,7 @@ docker compose up -d
   docker compose -f minio/compose.yml up -d
   ```
 ## :mag_right: Testando a Aplicação
-O projeto inclui um :page_facing_up: [arquivo de exportação](./postman) do Postman com todas as requisições disponíveis para teste. Importe este arquivo no Postman, ou em outro programa que suportar. <br>
+O projeto inclui um :page_facing_up: [arquivo de exportação](./postman) do Postman com todas as requisições disponíveis para teste. Atualize o **Postman** e importe o arquivo, ou importe em outro programa que suportar. <br>
 ### Dados de conexão com o PostgreSQL
 - URL: `jdbc:postgresql://localhost:5432/seplag`
 - USUARIO: `postgres`
@@ -57,8 +57,8 @@ Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](#he
 - USUARIO: `minioadmin`
 - SENHA: `minioadmin`
 #### WSL 2
-Certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
-Ao usar wsl para subir a api no docker, acesse o terminal no wsl e pode baixar a foto usando o **curl**:
+Acesse o terminal do wsl, certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
+Ao usar wsl para subir a api no docker, pode baixar a foto usando o **curl**:
 ```
 curl -k "SEU_LINK_TEMPORARIO" -o /var/tmp/foto.jpg
 ```
