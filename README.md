@@ -16,7 +16,7 @@ API REST desenvolvida em Spring Boot (Java 21) para o processo seletivo da SEPLA
 - **MinIO** (armazenamento de objetos)
 - **Docker** (conteinerização)
 
-## ⚙️ Pré-requisitos
+## :heavy_check_mark: Pré-requisitos
 - Docker instalado
 - Docker Compose versão 2.20.0 ou superior
 - DBeaver para acessar o postgres (opcional)
@@ -52,12 +52,12 @@ O projeto inclui um :page_facing_up: [arquivo de exportação](./postman) do Pos
 - USUARIO: `postgres`
 - SENHA: `seplag#2025`
 ### Dados de Acesso do MinIO
-Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](https://github.com/henricoVilela/seletivo-seplag-api/edit/main/README.md#%EF%B8%8F-pr%C3%A9-requisitos) para o container do **MinIO**, para acessar diretamente os links temporários.
+Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**, para acessar diretamente os links temporários.
 - URL Console: ` http://localhost:9001`
 - USUARIO: `minioadmin`
 - SENHA: `minioadmin`
 #### WSL 2
-Certifique-se de [adicionar o dns](https://github.com/henricoVilela/seletivo-seplag-api/edit/main/README.md#%EF%B8%8F-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
+Certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
 Ao usar wsl para subir a api no docker, acesse o terminal no wsl e pode baixar a foto usando o **curl**:
 ```
 curl -k "SEU_LINK_TEMPORARIO" -o /var/tmp/foto.jpg
