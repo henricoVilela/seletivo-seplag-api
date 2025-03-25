@@ -20,6 +20,7 @@ API REST desenvolvida em Spring Boot (Java 21) para o processo seletivo da SEPLA
 - Docker instalado
 - Docker Compose versão 2.20.0 ou superior
 - DBeaver para acessar o postgres (opcional)
+- Adicionar em `/etc/hosts` o dns `127.0.0.1 minio`. Isso possibilitará o acesso direto dos links temporarios do **MinIO**
   ### Execução local da api
   - Java 21
   - IDE para execução de depuração da aplicação (opcional)
@@ -33,7 +34,6 @@ Os scripts .sql estão em :file_folder: [db/migration](./src/main/resources/db/m
 docker compose up -d
 ```
 - Isso irá subir todos os containers necessários: `PostgreSQL` (5432), `MinIO` (9000), `MinIO Console` (9001) e `REST API` (8081).
-- Use para acessar o `MinIO Console` o usuario **minioadmin** e senha **minioadmin** .
   ### Execução Local
   Caso queira executar apenas a api de forma local através de um IDE.<br>
   
@@ -45,3 +45,40 @@ docker compose up -d
   ```bash
   docker compose -f minio/compose.yml up -d
   ```
+## :mag_right: Testando a Aplicação
+O projeto inclui um :page_facing_up: [arquivo de exportação](./postman) do Postman com todas as requisições disponíveis para teste. Importe este arquivo no Postman, ou em outro programa que suportar. <br>
+### Dados de conexão com o PostgreSQL
+- URL: `jdbc:postgresql://localhost:5432/seplag`
+- USUARIO: `postgres`
+- SENHA: `seplag#2025`
+### Dados de Acesso do MinIO
+Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](https://github.com/henricoVilela/seletivo-seplag-api/edit/main/README.md#%EF%B8%8F-pr%C3%A9-requisitos) para o container do **MinIO**, para acessar diretamente os links temporários.
+- URL Console: ` http://localhost:9001`
+- USUARIO: `minioadmin`
+- SENHA: `minioadmin`
+#### WSL 2
+Certifique-se de [adicionar o dns](https://github.com/henricoVilela/seletivo-seplag-api/edit/main/README.md#%EF%B8%8F-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
+Ao usar wsl para subir a api no docker, acesse o terminal no wsl e pode baixar a foto usando o **curl**:
+```
+curl -k "SEU_LINK_TEMPORARIO" -o /var/tmp/foto.jpg
+```
+### Dados de Acesso Api
+O usuário e senha da aplicação são armazenado em memória.
+- USUARIO: `admin`
+- SENHA: `senha_admin`
+- Para logar na aplicação:
+```
+curl -X POST http://localhost:8081/seplag/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"username":"admin", "password":"senha_admin"}'
+```
+- O token emitido é um `jwt` ao qual deverá ser utilizado no header `Authorization: Bearer <SEU_TOKEN_JWT>`, o mesmo foi configurado para expirar em 5 minutos.
+- Quando faltar menos de um minuto para o token expirar, na próxima requisição feita a API será adicionado um header `X-Token-Expiring: true`, que pode ser utilizado pelo cliente para solicitar um novo token.
+- Para gerar um novo token, a partir de token a vencer:
+```
+curl -X POST http://localhost:8081/seplag/api/auth/refresh-token \
+     -H "Content-Type: application/json" \
+     -d '{"token": <SEU_TOKEN_JWT>}'
+```
+#### Fotos
+- Ao inciar a aplicação não existe nenhuma foto, será necessário fazer o upload conforme :page_facing_up: [arquivo de exportação](./postman) do postman.
