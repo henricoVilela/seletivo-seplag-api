@@ -11,6 +11,8 @@ API REST desenvolvida em Spring Boot (Java 21) para o processo seletivo da SEPLA
 
 ## 🛠️ Tecnologias Utilizadas
 - **Java 21**
+  - **flyway** (migração)
+  - **jarkata-validation** (validação dos dados das requisições)
 - **Spring Boot 3**
 - **PostgreSQL** (banco de dados)
 - **MinIO** (armazenamento de objetos)
