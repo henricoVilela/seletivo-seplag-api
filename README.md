@@ -22,7 +22,7 @@ API REST desenvolvida em Spring Boot (Java 21) para o processo seletivo da SEPLA
 - Docker instalado
 - Docker Compose versão 2.20.0 ou superior
 - DBeaver para acessar o postgres (opcional)
-- Adicionar em `/etc/hosts` o dns `127.0.0.1 minio`. Isso possibilitará o acesso direto dos links temporarios do **MinIO**
+- Adicionar em `/etc/hosts` o dns `127.0.0.1 minio`. (Isso possibilitará o acesso direto dos links temporarios do **MinIO**, caso não queria acompanhar pelo console)
   ### Execução local da api
   - Java 21
   - IDE para execução de depuração da aplicação (opcional)
@@ -34,6 +34,10 @@ Os scripts .sql estão em :file_folder: [db/migration](./src/main/resources/db/m
 2. Na raiz do projeto, execute:
 ```bash
 docker compose up -d
+```
+3. Caso queira para os containers e revomer os dados salvos, na raiz do projeto execute
+```bash
+docker compose down -v
 ```
 - Isso irá subir todos os containers necessários: `PostgreSQL` (5432), `MinIO` (9000), `MinIO Console` (9001) e `REST API` (8081).
   ### Execução Local
@@ -48,18 +52,18 @@ docker compose up -d
   docker compose -f minio/compose.yml up -d
   ```
 ## :mag_right: Testando a Aplicação
-O projeto inclui um :page_facing_up: [arquivo de exportação](./postman) do Postman com todas as requisições disponíveis para teste. Atualize o **Postman** e importe o arquivo, ou importe em outro programa que suportar. <br>
+O projeto inclui um 🌐 [arquivo de exportação](./postman) do Postman com ***todas as requisições disponíveis para teste***. Atualize o **Postman** e importe o arquivo, ou importe em outro programa que suportar. <br>
 ### Dados de conexão com o PostgreSQL
 - URL: `jdbc:postgresql://localhost:5432/seplag`
 - USUARIO: `postgres`
 - SENHA: `seplag#2025`
 ### Dados de Acesso do MinIO
-Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**, para acessar diretamente os links temporários.
+Use o console para acompanhar os uploads. Certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) 🔨 para o container do **MinIO**, para acessar diretamente os links temporários.
 - URL Console: ` http://localhost:9001`
 - USUARIO: `minioadmin`
 - SENHA: `minioadmin`
 #### WSL 2
-Acesse o terminal do wsl, certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) para o container do **MinIO**. <br>
+Acesse o terminal do wsl, certifique-se de [adicionar o dns](#heavy_check_mark-pr%C3%A9-requisitos) 🔨 para o container do **MinIO**. <br>
 Ao usar wsl para subir a api no docker, pode baixar a foto usando o **curl**:
 ```
 curl -k "SEU_LINK_TEMPORARIO" -o /var/tmp/foto.jpg
@@ -83,4 +87,4 @@ curl -X POST http://localhost:8081/seplag/api/auth/refresh-token \
      -d '{"token": <SEU_TOKEN_JWT>}'
 ```
 #### Fotos
-- Ao inciar a aplicação não existe nenhuma foto, será necessário fazer o upload conforme :page_facing_up: [arquivo de exportação](./postman) do postman.
+- Ao inciar a aplicação não existe nenhuma foto, será necessário fazer o upload conforme 🌐 [arquivo de exportação](./postman) para o postman, com todas as requisições.
