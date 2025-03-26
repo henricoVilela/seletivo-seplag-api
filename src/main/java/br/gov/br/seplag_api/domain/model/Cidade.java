@@ -28,6 +28,15 @@ public class Cidade {
     @OneToMany(mappedBy = "cidade")
     private List<Endereco> enderecos;
 
+    public Cidade() {
+		super();
+	}
+    
+	public Cidade(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}
