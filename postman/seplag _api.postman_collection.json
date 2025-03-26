@@ -907,7 +907,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1ODE5OSwiZXhwIjoxNzQyODU4NDk5fQ.WFA3e-AmFT-xCIm-SJ8K1eH3c_ZxUTpSlq3JGm8VaVs",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjk0NTcwOCwiZXhwIjoxNzQyOTQ2MDA4fQ.kOZBRPGI6oduWkVVwdsY0fITTyeStsvnXMtT6QMxNy4",
 									"type": "string"
 								}
 							]
@@ -920,7 +920,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/henri/OneDrive/Imagens/Capturas de tela/Captura de Tela (2).png"
+									"src": "/C:/Users/henri/OneDrive/Imagens/Capturas de tela/Captura de tela 2024-05-23 200459.png"
 								}
 							]
 						},
@@ -994,7 +994,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1ODE5OSwiZXhwIjoxNzQyODU4NDk5fQ.WFA3e-AmFT-xCIm-SJ8K1eH3c_ZxUTpSlq3JGm8VaVs",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjk0NTcwOCwiZXhwIjoxNzQyOTQ2MDA4fQ.kOZBRPGI6oduWkVVwdsY0fITTyeStsvnXMtT6QMxNy4",
 									"type": "string"
 								}
 							]
@@ -1096,7 +1096,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2NDY3OCwiZXhwIjoxNzQyNzY0OTc4fQ.g2rCiysZKbVqTWlc9V0R4tfoR1cu_UbmSAoD2A8p-IU",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjk1MTE3OCwiZXhwIjoxNzQyOTUxNDc4fQ.uva-7IWkm3EbSG3pEoHg9OgLPbI_t0qrm1kjbngJ5Ok",
 									"type": "string"
 								}
 							]
@@ -1104,7 +1104,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8081/seplag/api/enderecos?pagina=0&tamanho=5&ordenacao=id&direcao=ASC",
+							"raw": "localhost:8081/seplag/api/enderecos?pagina=0&tamanho=10&ordenacao=id&direcao=ASC",
 							"host": [
 								"localhost"
 							],
@@ -1121,7 +1121,7 @@
 								},
 								{
 									"key": "tamanho",
-									"value": "5"
+									"value": "10"
 								},
 								{
 									"key": "ordenacao",
@@ -1144,7 +1144,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjc2Njc3NCwiZXhwIjoxNzQyNzY3MDc0fQ.RFamH-URmUqoemWzJ7Sk4G2GK1hsfmAuIDEYuHSKGlI",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjg1ODE5OSwiZXhwIjoxNzQyODU4NDk5fQ.WFA3e-AmFT-xCIm-SJ8K1eH3c_ZxUTpSlq3JGm8VaVs",
 									"type": "string"
 								}
 							]
@@ -1168,6 +1168,85 @@
 									"key": "nome",
 									"value": "amanda"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastra Endereço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjk1MTE3OCwiZXhwIjoxNzQyOTUxNDc4fQ.uva-7IWkm3EbSG3pEoHg9OgLPbI_t0qrm1kjbngJ5Ok",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoLogradouro\": \"apto\",\r\n    \"logradouro\": \"Residencial Portal do Rio\",\r\n    \"bairro\": \"Alameda\",\r\n    \"cidade\": {\r\n        \"id\": 6\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Endereço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0Mjk1MTE3OCwiZXhwIjoxNzQyOTUxNDc4fQ.uva-7IWkm3EbSG3pEoHg9OgLPbI_t0qrm1kjbngJ5Ok",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"logradouro\": \"Historiador Rubens de Mendonça - EDIT\",\r\n    \"numero\": 3500,\r\n    \"bairro\": \"Centro\",\r\n    \"cidade\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Cuiabá\",\r\n        \"uf\": \"MT\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/seplag/api/enderecos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seplag",
+								"api",
+								"enderecos",
+								"1"
 							]
 						}
 					},
