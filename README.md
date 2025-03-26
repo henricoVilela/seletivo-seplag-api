@@ -88,3 +88,84 @@ curl -X POST http://localhost:8081/seplag/api/auth/refresh-token \
 ```
 #### Fotos
 - Ao inciar a aplicação não existe nenhuma foto, será necessário fazer o upload conforme 🌐 [arquivo de exportação](./postman) para o postman, com todas as requisições.
+# SEPLAG API Endpoints
+- Detalhes de como deve ser o corpo das requisições pode ser acessado importando 🌐 [arquivo de exportação](./postman)
+## Autenticação
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | `/seplag/api/auth/login` | Realiza login no sistema |
+| POST | `/seplag/api/auth/refresh-token` | Atualiza o token de autenticação |
+
+## Unidades
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/seplag/api/unidade` | Lista todas as unidades (paginada) |
+| GET | `/seplag/api/unidade/{id}` | Obtém uma unidade pelo ID |
+| POST | `/seplag/api/unidade` | Cadastra uma nova unidade |
+| PUT | `/seplag/api/unidade/{id}` | Atualiza uma unidade existente |
+| DELETE | `/seplag/api/unidade/{id}` | Exclui uma unidade |
+
+## Servidor Efetivo
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/seplag/api/servidor-efetivo` | Lista todos os servidores efetivos (paginada) |
+| GET | `/seplag/api/servidor-efetivo/{id}` | Obtém um servidor efetivo pelo ID |
+| GET | `/seplag/api/servidor-efetivo/unidade/{id}` | Lista servidores efetivos por unidade |
+| POST | `/seplag/api/servidor-efetivo` | Cadastra um novo servidor efetivo |
+| PUT | `/seplag/api/servidor-efetivo/{id}` | Atualiza um servidor efetivo existente |
+| DELETE | `/seplag/api/servidor-efetivo/{id}` | Exclui um servidor efetivo |
+
+## Servidor Temporário
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/seplag/api/servidor-temporario` | Lista todos os servidores temporários (paginada) |
+| GET | `/seplag/api/servidor-temporario/{id}` | Obtém um servidor temporário pelo ID |
+| POST | `/seplag/api/servidor-temporario` | Cadastra um novo servidor temporário |
+| PUT | `/seplag/api/servidor-temporario/{id}` | Atualiza um servidor temporário existente |
+| DELETE | `/seplag/api/servidor-temporario/{id}` | Exclui um servidor temporário |
+
+## Lotação
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/seplag/api/lotacao` | Lista todas as lotações (paginada) |
+| GET | `/seplag/api/lotacao/{id}` | Obtém uma lotação pelo ID |
+| GET | `/seplag/api/lotacao/pessoa/{id}` | Lista lotações por pessoa |
+| GET | `/seplag/api/lotacao/unidade/{id}` | Lista lotações por unidade |
+| POST | `/seplag/api/lotacao` | Cadastra uma nova lotação |
+| PUT | `/seplag/api/lotacao/{id}` | Atualiza uma lotação existente |
+| DELETE | `/seplag/api/lotacao/{id}` | Exclui uma lotação |
+
+## Fotos
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | `/seplag/api/fotos/upload/{id}` | Upload de uma foto para pessoa |
+| POST | `/seplag/api/fotos/upload-multiplos/{id}` | Upload de múltiplas fotos para pessoa |
+| GET | `/seplag/api/fotos/pessoa/{id}/links` | Lista links de fotos por pessoa |
+| GET | `/seplag/api/fotos/pessoa/{id}` | Lista dados de fotos por pessoa |
+| GET | `/seplag/api/fotos/link/{id}` | Obtém link de uma foto pelo ID |
+
+## Endereços
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/seplag/api/enderecos` | Lista todos os endereços (paginada) |
+| GET | `/seplag/api/enderecos/pessoa` | Busca endereços por nome de pessoa |
+| POST | `/seplag/api/enderecos` | Cadastra um novo endereço |
+| PUT | `/seplag/api/enderecos/{id}` | Atualiza um endereço existente |
+
+## Parâmetros de Paginação e Ordenação
+
+A maioria dos endpoints GET que retornam listas suportam os seguintes parâmetros:
+
+- `pagina`: Número da página (começando em 0)
+- `tamanho`: Quantidade de itens por página
+- `ordenacao`: Campo para ordenação
+- `direcao`: Direção da ordenação (ASC ou DESC)
+
+Exemplo: `/seplag/api/unidade?pagina=0&tamanho=5&ordenacao=id&direcao=ASC`
